@@ -27,19 +27,17 @@ namespace WpfApp7
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int a, b, c;
-
-            string d1 = znach1.Text;
-
-            a = Convert.ToInt32(d1);
-
-            string d2 = znach2.Text;
-
-            b = Convert.ToInt32(d2);
-
-            c = a + b;
-
-            answer.Text = c.ToString();
+            try
+            {
+                int a = int.Parse(znach1.Text);
+                int b = int.Parse(znach2.Text);
+                int sum = a + b;
+                answer.Text = sum.ToString();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Введите ЧИСЛА в ОБА поля");
+            }
         }
     }
 }
